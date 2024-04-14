@@ -13,17 +13,6 @@ Registration
                 <h1 class="h4 text-gray-900 mb-4">Register in MTM Shop!</h1>
             </div>
             <div class="form-group">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            {{ form.username }}
-                            <label for="inputUsername">Login</label>
-                            {% if form.username.errors %}
-                            <div class="alert alert-danger">{{ form.username.errors[0] }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
                 <div class="form-floating mb-3">
                     {{ form.email }}
                     <label for="inputEmail">Adres e-mail</label>
