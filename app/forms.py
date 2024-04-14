@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import IntegerField, SelectField, StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from flask import flash
-from flask_package.models import User, Book
+from flask_sqlalchemy import User, Book
 from wtforms.fields import DateField
 from flask_wtf.file import FileField, FileAllowed
 from werkzeug.security import check_password_hash
@@ -11,7 +11,6 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    is_admin = BooleanField('Administrator')
     sex = SelectField('Płeć', choices=[('Mężczyzna', 'Mężczyzna'), ('Kobieta', 'Kobieta')])
     submit = SubmitField("Sign Up")
 
@@ -72,22 +71,9 @@ class LoginForm(FlaskForm):
 
 
 class BookForm(FlaskForm):
-    title = StringField('Name', validators=[DataRequired()])
-    author = StringField('Author', validators=[DataRequired()])
-    isbn = StringField('ISBN', validators=[DataRequired()])
-    date = DateField('Date', validators=[DataRequired()], format='%Y-%m-%d')
-    image = FileField('Book Image', validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
-    description = TextAreaField('Opis', validators=[Length(min=0, max=2000)])
-    total_quantity = IntegerField('Total Quantity', validators=[DataRequired()])
-    submit = SubmitField("Add Book")
-
-    def validate_total_quantity(self, total_quantity):
-        if total_quantity.data < 0:
-            raise ValidationError('Total quantity cannot be negative.')
-
-    def validate_current_quantity(self, current_quantity):
-        if current_quantity.data < 0:
-            raise ValidationError('Current quantity cannot be negative.')
+    user = StringField('User', validators=[DataRequired()])
+    product = StringField('ID', validators=[DataRequired()])
+    order = StringField('ID', validators=[DataRequired()])
 
 class EditBookForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=2, max=100)])
