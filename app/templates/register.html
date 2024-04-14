@@ -16,8 +16,7 @@ Registration
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            {{ form.username(class_='form-control', id='inputUsername', placeholder='Enter your login')
-                            }}
+                            {{ form.username }}
                             <label for="inputUsername">Login</label>
                             {% if form.username.errors %}
                             <div class="alert alert-danger">{{ form.username.errors[0] }}</div>
@@ -26,7 +25,7 @@ Registration
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    {{ form.email(class_='form-control', id='inputEmail', placeholder='name@example.com') }}
+                    {{ form.email }}
                     <label for="inputEmail">Adres e-mail</label>
                     {% if form.email.errors %}
                     <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
@@ -35,8 +34,7 @@ Registration
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            {{ form.password(class_='form-control', id='inputPassword', placeholder='Create a password')
-                            }}
+                            {{ form.password }}
                             <label for="inputPassword">Hasło</label>
                             {% if form.password.errors %}
                             <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
@@ -45,9 +43,7 @@ Registration
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            {{ form.confirm_password(class_='form-control', id='inputPasswordConfirm',
-                            placeholder='Confirm
-                            password') }}
+                            {{ form.confirm_password }}
                             <label for="inputPasswordConfirm">Powtórz hasło</label>
                             {% if form.confirm_password.errors %}
                             <div class="alert alert-danger">Hasła muszą być takie same.</div>
