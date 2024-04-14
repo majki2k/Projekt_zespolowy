@@ -1,6 +1,8 @@
 # Projekt_zespolowy
 
-Nazwa aplikacji: 
+Nazwa aplikacji: Strona internetowa ze sprzętem komputerowym
+
+Strona będzie zawierała panel logowania, prosty koszyk oraz katalog produktów.
 
 Twórcy:
 - Michał Macukiewicz
