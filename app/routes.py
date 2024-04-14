@@ -15,9 +15,6 @@ def register():
         email = request.form.get('email')
         password = request.form.get('password')
 
-        # Create a new user
-        new_user = User(email=email, password=password)
-
         return redirect(url_for('login'))
 
     return render_template('register.html')
