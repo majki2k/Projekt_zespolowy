@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<form method="post" action="">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <div class="card-body">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Login to MTM Shop!</h1>
+            </div>
+            <div class="form-group">
+                {{form.email(class="form-control form-control-user", placeholder="Email")}}
+            </div>
+            <div class="form-group">
+                {{form.password(class="form-control form-control-user", placeholder="Password")}}
+            </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block">Log in</button>
+        </div>
+    </div>
+</form>
+
+<div class="mt-4 mb-0">
+    {% if get_flashed_messages() %}
+    <div class="alert alert-danger">Login or password are incorrect.</div>
+    {% endif %}
+</div>
+{% endblock %}
