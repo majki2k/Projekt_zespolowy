@@ -1,4 +1,5 @@
 
+from app.forms import RegistrationForm, LoginForm
 from app import app
 from flask import Flask, render_template, request, redirect, url_for
 
@@ -10,6 +11,7 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    Form = RegistrationForm()
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -20,6 +22,7 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    Form = LoginForm()
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
