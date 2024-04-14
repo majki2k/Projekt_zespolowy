@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, SelectField, StringField, PasswordField, SubmitField, BooleanField, TextAreaField # type: ignore
+from wtforms import IntegerField, SelectField, StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FloatField, DateTimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange # type: ignore
 from flask import flash
-from flask_sqlalchemy import User
 from wtforms.fields import DateField # type: ignore
 from flask_wtf.file import FileField, FileAllowed
 from werkzeug.security import check_password_hash
@@ -110,4 +109,5 @@ class DeleteUser(FlaskForm):
     user = StringField('User', validators=[DataRequired()])
     confirm = BooleanField('Confirm Delete')
     submit = SubmitField("Delete user")
+
 
