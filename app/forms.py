@@ -67,13 +67,22 @@ class LoginForm(FlaskForm):
         if user is None:
             flash('Login is incorrect.')
             raise ValidationError('Login is incorrect.')
-    
-
 
 class ProductForm(FlaskForm):
-    user = StringField('User', validators=[DataRequired()])
-    product = StringField('ID', validators=[DataRequired()])
-    order = StringField('ID', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(max=100)])
+    description = TextAreaField('Description')
+    price = FloatField('Price', validators=[DataRequired(), NumberRange(min=0)])
+    quantity = IntegerField('Quantity', validators=[DataRequired(), NumberRange(min=0)])
+    product_image = StringField('Product Image', validators=[DataRequired()])
+    submit = SubmitField('Add Product')
+
+class OrderForm(FlaskForm):
+    user_id = IntegerField('User ID', validators=[DataRequired()])
+    product_id = IntegerField('Product ID', validators=[DataRequired()])
+    quantity = IntegerField('Quantity', validators=[DataRequired(), NumberRange(min=1)])
+    total_price = FloatField('Total Price', validators=[DataRequired(), NumberRange(min=0)])
+    order_date = DateTimeField('Order Date', validators=[DataRequired()])
+    submit = SubmitField('Place Order')    
 
 class EditProductForm(FlaskForm):
     name = StringField('Title', validators=[DataRequired(), Length(min=2, max=100)])
@@ -102,23 +111,3 @@ class DeleteUser(FlaskForm):
     confirm = BooleanField('Confirm Delete')
     submit = SubmitField("Delete user")
 
-class RateProductForm(FlaskForm):
-    rating = SelectField('Rating', choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')], coerce=int)
-    submit = SubmitField('Rate')
-
-class SearchForm(FlaskForm):
-    search = StringField('Search', validators=[DataRequired()])
-    submit = SubmitField('Search')
-
-class ReviewForm(FlaskForm):
-    content = TextAreaField('Content', validators=[DataRequired(), Length(min=1, max=2000)])
-    submit = SubmitField('Add Review')
-
-class DeleteReviewForm(FlaskForm):
-    review = StringField('Review', validators=[DataRequired()])
-    confirm = BooleanField('Confirm Delete')
-    submit = SubmitField("Usuń opinię")
-
-class EditCommentForm(FlaskForm):
-    content = TextAreaField('Content', validators=[DataRequired()])
-    submit = SubmitField('Update Comment')
