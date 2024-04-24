@@ -51,7 +51,6 @@ def add_item():
             existing_item.current_quantity += form.total_quantity.data
             flash('Ilość przedmiotów zaktualizowana!')
         else:
-            # Jeśli to nowa książka, dodaj ją do bazy
             item = item(name=form.title.data, description=form.description.data, price=form.price.data,
                         quantity=form.quantity.data, product_image=image_file,
                         current_quantity=form.total_quantity.data, total_quantity=form.total_quantity.data)
@@ -63,4 +62,4 @@ def add_item():
  
     if form.errors:
         flash('Validation Errors: ' + str(form.errors))
-    return render_template('create_book.html', title='Add Item', form=form)
+    return render_template('add_item.html', title='Add Item', form=form)
