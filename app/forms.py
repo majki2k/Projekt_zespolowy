@@ -30,7 +30,7 @@ class ProductForm(FlaskForm):
     description = TextAreaField('Description')
     price = FloatField('Price', validators=[DataRequired(), NumberRange(min=0)])
     quantity = IntegerField('Quantity', validators=[DataRequired(), NumberRange(min=0)])
-    product_image = StringField('Product Image', validators=[DataRequired()])
+    product_image = FileField('Product Image', validators=[FileAllowed(['jpg', 'png'], 'Only pictures in jpg or png format!')])
     submit = SubmitField('Add Product')
 
 class OrderForm(FlaskForm):
