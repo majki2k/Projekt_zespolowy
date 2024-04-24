@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, ProductForm
 from app import app, db
 from flask import Flask, render_template, request, redirect, url_for, flash
 from app.models import User
-
+import os
 
 @app.route('/')
 @app.route('/index')
