@@ -32,12 +32,14 @@ def login():
     return render_template('login.html', form = Form)
 
 
-@app.route('/product', methods=['GET', 'POST'])
+@app.route('/product', methods=['GET'])
 def product():
     Form = ProductForm()
     if request.method =='GET':
-    name = request.form.get('name')
-    description = request.form.get('description')
-    price = request.form.get('Price')
-    quantity = request.form.get('Quantity')
-    product_image = request.form.get('Product Image')
+        name = request.form.get('name')
+        description = request.form.get('description')
+        price = request.form.get('Price')
+        quantity = request.form.get('Quantity')
+        product_image = request.form.get('Product Image')
+        return redirect(url_for('product'))
+    return render_template('shop.html', form = Form)
