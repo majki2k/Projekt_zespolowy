@@ -15,21 +15,21 @@ Registration
             <div class="form-group">
                 <div class="form-floating mb-3">
                     <label for="inputEmail">Adres e-mail</label>
-                    {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off") }}
+                    {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
                     {% if form.email.errors %}
                     <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
                     {% endif %}
                 </div>
                 <div class="form-floating mb-3">
                     <label for="inputPassword">Password</label>
-                    {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off") }}
+                    {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
                     {% if form.password.errors %}
                     <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
                     {% endif %}
                 </div>
                 <div class="form-floating mb-3">
                     <label for="inputPasswordConfirm">Confirm password</label>
-                    {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off") }}
+                    {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
                     {% if form.confirm_password.errors %}
                     <div class="alert alert-danger">Passwords must be the same.</div>
                     {% endif %}
@@ -40,4 +40,13 @@ Registration
         </div>
     </div>
 </form>
+
+<script>
+    // JavaScript to clear placeholder on focus
+    document.querySelectorAll('.form-control').forEach(function(input) {
+        input.addEventListener('focus', function() {
+            this.placeholder = '';
+        });
+    });
+</script>
 {% endblock %}
