@@ -1,7 +1,7 @@
 
 from curses import flash
 from app.forms import RegistrationForm, LoginForm, ProductForm
-from app import app, db, os
+from app import app, db
 from flask import Flask, render_template, request, redirect, url_for, flash
 from app.models import User
 
