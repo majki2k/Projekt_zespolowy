@@ -3,6 +3,7 @@ from wtforms import IntegerField, StringField, PasswordField, SubmitField, Boole
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange 
 from flask import flash
 from flask_wtf.file import FileField, FileAllowed
+from app.models import User, Product, Order
 
 
 class RegistrationForm(FlaskForm):
@@ -16,6 +17,12 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField("Log In")
+
+    def validate_user(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            flash("Email or password is not correct")
+            raise ValidationError("Email or password is not correct")
 
 class ProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(max=100)])

@@ -1,5 +1,5 @@
 
-from app.forms import RegistrationForm, LoginForm
+from app.forms import RegistrationForm, LoginForm, ProductForm
 from app import app
 from flask import Flask, render_template, request, redirect, url_for
 
@@ -30,3 +30,16 @@ def login():
         return redirect(url_for('index'))
 
     return render_template('login.html', form = Form)
+
+
+@app.route('/product', methods=['GET'])
+def product():
+    Form = ProductForm()
+    if request.method =='GET':
+        name = request.form.get('name')
+        description = request.form.get('description')
+        price = request.form.get('Price')
+        quantity = request.form.get('Quantity')
+        product_image = request.form.get('Product Image')
+        return redirect(url_for('product'))
+    return render_template('shop.html', form = Form)
