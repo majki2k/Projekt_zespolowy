@@ -44,7 +44,7 @@ def add_item():
         form.image.data.save(image_path)
  
         
-        existing_item = item.query.filter_by(title=form.title.data, isbn=form.isbn.data).first()
+        existing_item = item.query.filter_by(name=form.name.data).first()
        
         if existing_item:
             existing_item.total_quantity += form.total_quantity.data
