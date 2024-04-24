@@ -14,8 +14,8 @@ Registration
             </div>
             <div class="form-group">
                 <div class="form-floating mb-3">
-                    {{ form.email }}
                     <label for="inputEmail">Adres e-mail</label>
+                    {{ form.email(class="form-control", placeholder="Enter your mail address") }}
                     {% if form.email.errors %}
                     <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
                     {% endif %}
@@ -23,8 +23,8 @@ Registration
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            {{ form.password }}
                             <label for="inputPassword">Hasło</label>
+                            {{ form.password(class="form-control", placeholder="Enter password") }}
                             {% if form.password.errors %}
                             <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
                             {% endif %}
@@ -32,19 +32,18 @@ Registration
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            {{ form.confirm_password }}
-                            <label for="inputPasswordConfirm">Powtórz hasło</label>
+                            <label for="inputPasswordConfirm">Confirm password</label>
+                            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
                             {% if form.confirm_password.errors %}
-                            <div class="alert alert-danger">Hasła muszą być takie same.</div>
+                            <div class="alert alert-danger">Passwords must be the same.</div>
                             {% endif %}
                         </div>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-user btn-block">Log in</button>
+                <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
             </div>
         </div>
+    </div>
 </form>
-
-
 {% endblock %}
