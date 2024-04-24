@@ -5,7 +5,7 @@ Add Items
 {% endblock %}
 
 {% block content %}
-<form method="POST" action="{{ url_for('product') }}">
+<form method="POST" action="{{ url_for('add_item') }}">
     {{ form.hidden_tag() }}
     <div class="card-body">
         <div class="p-5">
