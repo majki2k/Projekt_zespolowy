@@ -58,7 +58,7 @@ def add_item():
             flash('Przedmiot dodany!')
  
         db.session.commit()
-        return redirect(url_for('routes.additem'))
+        return redirect(url_for('routes.add_item'))
  
     if form.errors:
         flash('Validation Errors: ' + str(form.errors))
