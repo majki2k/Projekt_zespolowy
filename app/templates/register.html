@@ -13,27 +13,25 @@ Registration
                 <h1 class="h4 text-gray-900 mb-4">Register in MTM Shop!</h1>
             </div>
             <div class="form-group">
-                <div class="form-floating mb-3">
-                    <label for="inputEmail">Adres e-mail</label>
-                    {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
-                    {% if form.email.errors %}
-                    <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
-                    {% endif %}
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="inputPassword">Password</label>
-                    {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
-                    {% if form.password.errors %}
-                    <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
-                    {% endif %}
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="inputPasswordConfirm">Confirm password</label>
-                    {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
-                    {% if form.confirm_password.errors %}
-                    <div class="alert alert-danger">Passwords must be the same.</div>
-                    {% endif %}
-                </div>
+                <label for="inputEmail">Adres e-mail</label>
+                {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
+                {% if form.email.errors %}
+                <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
+                {% if form.password.errors %}
+                <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="inputPasswordConfirm">Confirm password</label>
+                {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
+                {% if form.confirm_password.errors %}
+                <div class="alert alert-danger">Passwords must be the same.</div>
+                {% endif %}
             </div>
 
             <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
