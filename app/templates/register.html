@@ -14,21 +14,21 @@ Registration
             </div>
             <div class="form-group">
                 <label for="inputEmail">Adres e-mail</label>
-                {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
+                {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off") }}
                 {% if form.email.errors %}
                 <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
                 {% endif %}
             </div>
             <div class="form-group">
                 <label for="inputPassword">Password</label>
-                {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
+                {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off") }}
                 {% if form.password.errors %}
                 <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
                 {% endif %}
             </div>
             <div class="form-group">
                 <label for="inputPasswordConfirm">Confirm password</label>
-                {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off", onfocus="this.placeholder=''") }}
+                {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off") }}
                 {% if form.confirm_password.errors %}
                 <div class="alert alert-danger">Passwords must be the same.</div>
                 {% endif %}
@@ -38,13 +38,4 @@ Registration
         </div>
     </div>
 </form>
-
-<script>
-    // JavaScript to clear placeholder on focus
-    document.querySelectorAll('.form-control').forEach(function(input) {
-        input.addEventListener('focus', function() {
-            this.placeholder = '';
-        });
-    });
-</script>
 {% endblock %}
