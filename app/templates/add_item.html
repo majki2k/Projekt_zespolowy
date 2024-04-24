@@ -5,7 +5,30 @@ Add Items
 {% endblock %}
 
 {% block content %}
-
-
-
+<form method="POST" action="{{ url_for('product') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        <label for="name">Name:</label>
+        {{ form.name(id="name") }}
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        {{ form.description(id="description") }}
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        {{ form.price(id="price") }}
+    </div>
+    <div>
+        <label for="quantity">Quantity:</label>
+        {{ form.quantity(id="quantity") }}
+    </div>
+    <div>
+        <label for="product_image">Product Image:</label>
+        {{ form.product_image(id="product_image") }}
+    </div>
+    <div>
+        <button type="submit">Add Product</button>
+    </div>
+</form>
 {% endblock %}
