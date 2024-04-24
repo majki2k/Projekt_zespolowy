@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}
-Login
-{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 <form method="post" action="">
@@ -10,13 +8,15 @@ Login
     <div class="card-body">
         <div class="p-5">
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Login to MTM Shop!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Login to MTM Shop</h1>
             </div>
             <div class="form-group">
-                {{ form.email }}
+                <label for="inputEmail">Email address:</label>
+                {{ form.email(class="form-control", style="width: 250px;", placeholder="Enter your email") }}
             </div>
             <div class="form-group">
-                {{ form.password }}
+                <label for="inputPassword">Password:</label>
+                {{ form.password(class="form-control", style="width: 250px;", placeholder="Enter your password") }}
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">Log in</button>
         </div>

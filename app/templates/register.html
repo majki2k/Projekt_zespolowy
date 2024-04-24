@@ -5,7 +5,7 @@ Registration
 {% endblock %}
 
 {% block content %}
-<form method="post" action="">
+<form method="post" action="" class="d-flex justify-content-center">
     {{ form.hidden_tag() }}
     <div class="card-body">
         <div class="p-5">
@@ -15,34 +15,28 @@ Registration
             <div class="form-group">
                 <div class="form-floating mb-3">
                     <label for="inputEmail">Adres e-mail</label>
-                    {{ form.email(class="form-control", placeholder="Enter your mail address") }}
+                    {{ form.email(class="form-control", placeholder="Enter your mail address", style="width: 250px;", autocomplete="off") }}
                     {% if form.email.errors %}
                     <div class="alert alert-danger">{{ form.email.errors[0] }}</div>
                     {% endif %}
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <label for="inputPassword">Hasło</label>
-                            {{ form.password(class="form-control", placeholder="Enter password") }}
-                            {% if form.password.errors %}
-                            <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <label for="inputPasswordConfirm">Confirm password</label>
-                            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
-                            {% if form.confirm_password.errors %}
-                            <div class="alert alert-danger">Passwords must be the same.</div>
-                            {% endif %}
-                        </div>
-                    </div>
+                <div class="form-floating mb-3">
+                    <label for="inputPassword">Password</label>
+                    {{ form.password(class="form-control", placeholder="Enter password", style="width: 250px;", autocomplete="off") }}
+                    {% if form.password.errors %}
+                    <div class="alert alert-danger">{{ form.password.errors[0] }}</div>
+                    {% endif %}
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                <div class="form-floating mb-3">
+                    <label for="inputPasswordConfirm">Confirm password</label>
+                    {{ form.confirm_password(class="form-control", placeholder="Confirm password", style="width: 250px;", autocomplete="off") }}
+                    {% if form.confirm_password.errors %}
+                    <div class="alert alert-danger">Passwords must be the same.</div>
+                    {% endif %}
+                </div>
             </div>
+
+            <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
         </div>
     </div>
 </form>
