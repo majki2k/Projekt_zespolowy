@@ -13,24 +13,37 @@ Add Items
                 <h1 class="h4 text-gray-900 mb-4">Add Items</h1>
             </div>
             <div class="form-group">
-                <label for="name">Name:</label>
-                {{ form.name(class="form-control", id="name") }}
+                <label for="name">Name</label>
+                {{ form.name(class="form-control", placeholder="Enter the product name", style="width: 250px;", autocomplete="off") }}
+                {% if form.name.errors %}
+                <div class="alert alert-danger">{{ form.name.errors[0] }}</div>
+                {% endif %}
             </div>
             <div class="form-group">
-                <label for="description">Description:</label>
-                {{ form.description(class="form-control", id="description") }}
+                <label for="description">Name</label>
+                {{ form.description(class="form-control", placeholder="Enter a product description", style="width: 250px;", autocomplete="off") }}
+                {% if form.description.errors %}
+                <div class="alert alert-danger">{{ form.description.errors[0] }}</div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
-                {{ form.price(class="form-control", id="price") }}
+                {{ form.price(class="form-control", placeholder="Enter price", style="width: 250px;", autocomplete="off") }}
+                {% if form.price.errors %}
+                <div class="alert alert-danger">{{ form.price.errors[0] }}</div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity:</label>
-                {{ form.quantity(class="form-control", id="quantity") }}
+                {{ form.quantity(class="form-control", placeholder="Enter quantity", style="width: 250px;", autocomplete="off") }}
+                {% if form.quantity.errors %}
+                <div class="alert alert-danger">{{ form.quantity.errors[0] }}</div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label for="product_image">Product Image:</label>
-                {{ form.product_image(class="form-control", id="product_image") }}
+                {{ form.product_image(class="form-control", placeholder="Choose a file", style="width: 450px;", autocomplete="off") }}
+
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-user btn-block">Add Product</button>
