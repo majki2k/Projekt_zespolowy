@@ -20,7 +20,7 @@ Add Items
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="description">Name</label>
+                <label for="description">Description</label>
                 {{ form.description(class="form-control", placeholder="Enter a product description", style="width: 250px;", autocomplete="off") }}
                 {% if form.description.errors %}
                 <div class="alert alert-danger">{{ form.description.errors[0] }}</div>
